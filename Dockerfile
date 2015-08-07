@@ -64,13 +64,14 @@ ADD conf/build.properties build.properties
 ADD conf/project.properties project.properties
 ADD conf/maven.xml maven.xml
 ADD conf/setup.sh ./bin/setup.sh
-ADD conf/pipeline/setup.sh ./bin/pipeline/setup.sh
+ADD conf/maven.sh ./bin/maven.sh
+ADD conf/pipeline/setup.sh ./pipeline/setup.sh
 
-RUN ./bin/setup.sh
+RUN sync && ./bin/setup.sh
 
 # Replace every maven repository reference with xnat's repository address
 RUN find . -type f -exec sed -i -- 's/http:\/\/repo1.maven.org\/maven/http:\/\/maven.xnat.org\/xnat-maven1,http:\/\/repo1.maven.org\/maven/g' {} +
-RUN ./bin/maven.sh xdat:deployWebapp
+RUN sync && ./bin/maven.sh xdat:deployWebapp
 
 # Add utility scripts for bootstrapping the application
 ADD scripts ./bin
