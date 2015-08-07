@@ -341,7 +341,7 @@
     <!-- so that any user can modify them -->
     <!-- ================================================================ -->
     <goal name="xdat:chmod">
-        <maven:makeAbsolutePath var="xdat.bin.dir" path="bin" basedir="${basedir}"/>
+        <!-- <maven:makeAbsolutePath var="xdat.bin.dir" path="bin" basedir="${basedir}"/>
         <ant:chmod perm="ugo+rx">
             <fileset dir="${xdat.bin.dir}">
                 <exclude name="*.bat"/>
@@ -352,7 +352,7 @@
         <ant:chmod perm="ugo+rxw" dir="${basedir}/deployments/${xdat.project.name}/logs"/>
         <ant:chmod perm="ugo+rxw" dir="${basedir}/deployments/${xdat.project.name}/work"/>
         <ant:chmod perm="ugo+rxw" dir="${basedir}/plugin-resources/maven-1.0.2/bin/install_repo.sh"/>
-        <ant:chmod perm="ugo+rxw" dir="${basedir}/plugin-resources/maven-1.0.2/bin/maven"/>
+        <ant:chmod perm="ugo+rxw" dir="${basedir}/plugin-resources/maven-1.0.2/bin/maven"/> -->
     </goal>
     <!-- ================================================================ -->
     <!-- Delete any pre-existing Turbine plugins and replace with the local copy.              -->
