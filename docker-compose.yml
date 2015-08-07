@@ -1,0 +1,25 @@
+xnat:
+  restart: never
+  image: xnat
+  ports:
+    - 8080:8080
+    - 8104:8104
+  environment:
+    DB_HOST: postgres
+    DB_NAME: xnat
+    DB_USER: xnat
+    DB_PASSWORD: calvin
+    SITE_URL: "http:\/\/192.168.59.103:8080\/xnat"
+  links:
+    - postgres
+postgres:
+  restart: never
+  image: postgres:9.4
+  environment:
+    POSTGRES_PASSWORD: calvin
+  volumes_from:
+    - dbdata
+dbdata:
+  restart: never
+  image: postgres
+  command: echo "Data-only container for postgres"
