@@ -1748,11 +1748,11 @@
                         </ant:exec>
                     </j:if>
                     <j:if test="${!context.getVariable('os.name').startsWith('Windows')}">
-                        <ant:chmod perm="ugo+rx">
+                        <!-- <ant:chmod perm="ugo+rx">
                             <fileset dir="${pipeline.dir}">
                                 <filename name="setup.sh"/>
                             </fileset>
-                        </ant:chmod>
+                        </ant:chmod> -->
                         <ant:echo>Launching ${pipeline.dir}/setup.sh script</ant:echo>
                         <ant:exec executable="${pipeline.dir}/setup.sh" failonerror="true">
                             <ant:arg value="${xdat.mail.admin}"/>
