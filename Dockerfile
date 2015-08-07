@@ -63,6 +63,7 @@ VOLUME $XNAT_LIBRARY_DIR
 ADD conf/build.properties build.properties
 ADD conf/project.properties project.properties
 ADD conf/maven.xml maven.xml
+ADD conf/setup.sh ./bin/setup.sh
 
 RUN ./bin/setup.sh
 
