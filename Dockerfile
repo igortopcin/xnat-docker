@@ -76,6 +76,9 @@ RUN sync && ./bin/maven.sh xdat:deployWebapp
 # Add utility scripts for bootstrapping the application
 ADD scripts ./bin
 
+# Make sure everything in ./bin is executable
+RUN find . -name "bin" -type d -exec chmod -R 777 {} +
+
 # Startup procedure
 WORKDIR $CATALINA_HOME
 
